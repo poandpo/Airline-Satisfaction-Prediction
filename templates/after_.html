@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Predicting satisfaction</title>
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="../static/css/mdb.min.css" />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../staticcss/style.css" />
+</head>
+<body>
+  
+    <center>
+
+    <h1 style="background-color: rgba(0, 0, 0, 0.2);">  result  </h1>
+
+    
+    {%if data == 1 %}
+    <p>
+    <h1> 적절한 항공사입니다</h1></p>  
+    <p><h3> 예약하러 가세요</h3> </p>
+     
+
+    {%else%}
+    <h1> 다른 항공사로 바꾸시는게 더 적합합니다</h1>
+     
+    {%endif%}
+    <p>
+    </button>
+    <button onClick="history.back();" type="button" class="btn btn-light" data-mdb-ripple-color="dark">Check</button>
+    <button onclick="location.href='/'" type="button" class="btn btn-light" data-mdb-ripple-color="dark">home</button>
+    </p>
+    </center>
+
+   
+    
+   
+    <center></center>   
+    <h3 class="mb-5" ><strong>항공사 사이트</strong></h3>
+    </center>
+    </p>
+    
+    <div class="row">
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="card">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7ZJUxNFba_35u1l17D_z1TicQEZpJYN35tg&usqp=CAU" style="width: 300px; height:200px;" class="img-fluid" />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">대한항공</h5>
+            <a href="https://www.koreanair.com/kr/ko" class="btn btn-primary">Let's go</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="data:image/png;base64,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" style="width: 300px; height:200px;"  class="img-fluid" />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">아시아나</h5>
+            <a href="https://flyasiana.com/I/KR/KO/LowerPriceSearchList.do?menuId=CM201802220000728256&gclid=Cj0KCQjwwY-LBhD6ARIsACvT72P1dQQKDibAl7A3VRRBFwqWlu0QxyHAu6O8JDQPmg4rbNo0fp9Mfb0aAm1iEALw_wcB"  class="btn btn-primary">Let's go</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsEe4vkYPsIpvQDxWQouKuGLgE1HyzjPkHxQ&usqp=CAU"  style="width: 300px; height:200px;" class="img-fluid" />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">진에어</h5>
+            <a href="https://www.jinair.com/gate?dispLang=KOR&returnUrl=%2Fko_KR%2F" class="btn btn-primary">Let's go</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-12 mb-4">
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img src="data:image/png;base64,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" style="width: 300px; height:200px;" class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">티웨이</h5>
+              <a href="https://www.twayair.com/app/main" class="btn btn-primary">Let's go</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img src="https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F256ADB425743D49C0F7C19" style="width: 300px; height:200px;"  class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">제주공항</h5>
+              <a href="https://www.airport.co.kr/jeju/index.do"  class="btn btn-primary">Let's go</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img src="data:image/png;base64,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"  style="width: 300px; height:200px;" class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">에어부산</h5>
+              <a href="https://www.airbusan.com/content/individual/?" class="btn btn-primary">Let's go</a>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+
+
+        
+    
+
+<body>
+  <!--Footer-->
+  <footer class="bg-light text-lg-start">
+
+
+    <hr class="m-0" />
+
+   
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2021 Copyright:
+      <a class="text-dark" href="https://mdbootstrap.com/">Lim_chaeeun</a>
+    </div>
+
+    <!-- Copyright -->
+  </footer>
+  <!--Footer-->
+</footer>
+<!--/.Footer-->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{{url_for('static', filename='js/mdb.min.js')}}"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+  // Animations initialization
+  new WOW().init();
+ </script>
+</body>
+</html>

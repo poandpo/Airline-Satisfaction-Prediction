@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Predicting satisfaction</title>
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="../static/css/mdb.min.css" />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../staticcss/style.css" />
+</head>
+<body>
+
+
+  <!--Main layout-->
+  <main class="mt-5">
+    <div class="container">
+      <!--Section: Content-->
+      <section>
+
+          <div class="chae">
+            <h4><strong>How to check</strong></h4>
+            <p class="text-muted">
+            * 당신의 정보에 해당하는곳에 체크하세요
+            <p class="text-muted">
+             * 사용하고자 하는 항공사에 해당되는 곳에 체크하시오(0~5)
+             <p class="text-muted">
+              &nbsp&nbsp0: 해당 없음&nbsp&nbsp1:매우 잘 되어있지 않음&nbsp&nbsp2:잘 되어있지 않음&nbsp&nbsp3:보통&nbsp&nbsp4: 잘 되어있음&nbsp&nbsp5: 매우 잘되어있음
+            </p>
+            <p class="text-muted">
+            * 질문 모두 다 체크해야 합니다
+              </p>
+            </p>
+            <p><strong> description of questions </strong></p>
+            
+            <p class="text-muted">
+              <p class="text-muted" >
+               - Travel_Type: 당신의 여행의 목적에 체크하시오 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp- Gender: 당신의 성별에 체크하시오
+              </p>
+              <p class="text-muted">
+               - Customer_Type: 자주 사용하는 항공사인지 아닌지 체크하시오 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp- Class: 당신이 타고자하는 비행기 등급을 체크하시오
+              </p>
+              <p class="text-muted">
+                - Age: 당신의 나이를 쓰시오 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  - wifi_service: 해당 항공사의 와이파이 서비스 정도를 체크하시오 
+               </p>
+               <p class="text-muted">
+                - Online_booking: 온라인 예매의 용이성에 대해 체크하시오 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp- entertainment: 기내의 오락 서비스 정도에 대해 체크하시오
+               </p>
+               <p class="text-muted">
+                 - Checkin_service: 체크인 서비스에 대해 체크하시오 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-  Inflight_service: 기내 서비스 정도에 대해 체크하시오
+                </p>
+                <p class="text-muted">
+                 - time_convenient: 출발시간/도착시간의 편리성에 대해 체크하시오
+          </div>
+        </div>
+      </section>
+    </main>
+      
+
+      <hr class="my-5" />
+
+      <!--Section: Content-->
+      <section class="text-center">
+        <h4 class="mb-5"><strong>Check an airline</strong></h4>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-6">
+            
+           <form action="{{url_for('home')}}" method="post">
+          <!-- Checkbox -->
+             <span style="float:left;"> 
+             <p>
+              <h6>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGender</h6>
+                <div class="form-check form-check-inline" >
+                 <input class="form-check-input" name="name1" type="radio" id="inlineCheckbox4" value=0 />
+                 <label class="form-check-label" for="inlineCheckbox1">Male</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name1" type="radio" id="inlineCheckbox4" value=1 />
+                 <label class="form-check-label" for="inlineCheckbox2">Female</label>
+                </div>
+              </p>
+             </span>
+
+             <span style="float:right;"> 
+              <p>
+               <h6>Travel_Type </h6>
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name2" type="radio" id="inlineCheckbox5" value=0 />
+                 <label class="form-check-label" for="inlineCheckbox1">&nbsp&nbsp&nbspPersonal Travel</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name2" type="radio" id="inlineCheckbox5" value=1 />
+                 <label class="form-check-label" for="inlineCheckbox2">&nbsp&nbsp&nbspBusiness Travel</label>
+                </div>
+              </p>  
+             </span> 
+            <div style="clear:both"></div>
+          
+             <span style="float:right;">
+              <p>
+               <h6>Customer_Type</h6>
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name3" type="radio" id="Loyal Customer" value=0 />
+                <label class="form-check-label" for="inlineCheckbox1">Loyal Customer</label>
+               </div>
+
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name3" type="radio" id="inlineCheckbox5" value=1 />
+                <label class="form-check-label" for="inlineCheckbox2">Disloyal Customer</label>
+               </div>
+              </p>
+             </span>
+          
+ 
+            
+            <span style="float:left;">  
+             <p>
+              <h6>Class</h6>
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name4" type="radio" id="inlineCheckbox7" value=0 />
+                 <label class="form-check-label" for="inlineCheckbox1">Eco</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name4" type="radio" id="inlineCheckbox7" value=1 />
+                 <label class="form-check-label" for="inlineCheckbox2">Eco plus</label>
+                </div>
+              
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name4" type="radio" id="inlineCheckbox7" value=2 />
+                 <label class="form-check-label" for="inlineCheckbox2">Business</label>
+                </div> 
+             </p>
+           </span>
+            
+          
+           
+           <span style="float:right;"> 
+             <p>
+               <h6>wifi_service</h6>
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name5" type="radio" id="inlineCheckbox8" value=0 />
+                <label class="form-check-label" for="inlineCheckbox1">0</label>
+               </div>
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name5" type="radio" id="inlineCheckbox8" value=1 />
+                 <label class="form-check-label" for="inlineCheckbox1">1</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name5" type="radio" id="inlineCheckbox8" value=2 />
+                 <label class="form-check-label" for="inlineCheckbox2">2</label>
+                </div>
+              
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name5" type="radio" id="inlineCheckbox8" value=3 />
+                 <label class="form-check-label" for="inlineCheckbox2">3</label>
+                </div> 
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name5" type="radio" id="inlineCheckbox8" value=4 />
+                 <label class="form-check-label" for="inlineCheckbox2">4</label>
+                </div>
+              
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name5" type="radio" id="inlineCheckbox8" value=5 />
+                 <label class="form-check-label" for="inlineCheckbox2">5</label>
+                </div>
+              </p>
+            </span>
+
+            <span style="float:left;">
+             <p>  
+              <h6>Online_booking</h6>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name6" type="radio" id="inlineCheckbox9" value=0 />
+                <label class="form-check-label" for="inlineCheckbox1">0</label>
+               </div>
+
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name6" type="radio" id="inlineCheckbox9" value=1 />
+                <label class="form-check-label" for="inlineCheckbox1">1</label>
+               </div>
+
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name6" type="radio" id="inlineCheckbox9" value=2 />
+                <label class="form-check-label" for="inlineCheckbox2">2</label>
+               </div>
+              
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name6" type="radio" id="inlineCheckbox9" value=3 />
+                <label class="form-check-label" for="inlineCheckbox2">3</label>
+               </div> 
+
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name6" name="name6" type="radio" id="inlineCheckbox9" value=4 />
+                <label class="form-check-label" for="inlineCheckbox2">4</label>
+               </div>
+              
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name6" type="radio" id="inlineCheckbox9" value=5 />
+                <label class="form-check-label" for="inlineCheckbox2">5</label>
+               </div>  
+              </p>
+            </span> 
+          
+            <span style="float:right;">
+              <p>  
+               <h6>entertainment</h6>
+
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name7" type="radio" id="inlineCheckbox9" value=0 />
+                <label class="form-check-label" for="inlineCheckbox1">0</label>
+               </div>
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name7" type="radio" id="inlineCheckbox9" value=1 />
+                 <label class="form-check-label" for="inlineCheckbox1">1</label>
+                </div>
+ 
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name7" type="radio" id="inlineCheckbox9" value=2 />
+                 <label class="form-check-label" for="inlineCheckbox2">2</label>
+                </div>
+               
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name7" type="radio" id="inlineCheckbox9" value=3 />
+                 <label class="form-check-label" for="inlineCheckbox2">3</label>
+                </div> 
+ 
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name7" name="name6" type="radio" id="inlineCheckbox9" value=4 />
+                 <label class="form-check-label" for="inlineCheckbox2">4</label>
+                </div>
+               
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name7" type="radio" id="inlineCheckbox9" value=5 />
+                 <label class="form-check-label" for="inlineCheckbox2">5</label>
+                </div>  
+               </p>
+             </span> 
+
+             <span style="float:left;">
+              <p>  
+               <h6>Checkin_service</h6>
+
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name8" type="radio" id="inlineCheckbox9" value=0 />
+                <label class="form-check-label" for="inlineCheckbox1">0</label>
+               </div>
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name8" type="radio" id="inlineCheckbox9" value=1 />
+                 <label class="form-check-label" for="inlineCheckbox1">1</label>
+                </div>
+ 
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name8" type="radio" id="inlineCheckbox9" value=2 />
+                 <label class="form-check-label" for="inlineCheckbox2">2</label>
+                </div>
+               
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name8" type="radio" id="inlineCheckbox9" value=3 />
+                 <label class="form-check-label" for="inlineCheckbox2">3</label>
+                </div> 
+ 
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name8" name="name6" type="radio" id="inlineCheckbox9" value=4 />
+                 <label class="form-check-label" for="inlineCheckbox2">4</label>
+                </div>
+               
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name8" type="radio" id="inlineCheckbox9" value=5 />
+                 <label class="form-check-label" for="inlineCheckbox2">5</label>
+                </div>  
+               </p>
+             </span> 
+
+             <span style="float:left;">
+              <p>  
+               <h6>Inflight_service</h6>
+
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name9" type="radio" id="inlineCheckbox9" value=0 />
+                <label class="form-check-label" for="inlineCheckbox1">0</label>
+               </div>
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name9" type="radio" id="inlineCheckbox9" value=1 />
+                 <label class="form-check-label" for="inlineCheckbox1">1</label>
+                </div>
+ 
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name9" type="radio" id="inlineCheckbox9" value=2 />
+                 <label class="form-check-label" for="inlineCheckbox2">2</label>
+                </div>
+               
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name9" type="radio" id="inlineCheckbox9" value=3 />
+                 <label class="form-check-label" for="inlineCheckbox2">3</label>
+                </div> 
+ 
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name9" name="name6" type="radio" id="inlineCheckbox9" value=4 />
+                 <label class="form-check-label" for="inlineCheckbox2">4</label>
+                </div>
+               
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name9" type="radio" id="inlineCheckbox9" value=5 />
+                 <label class="form-check-label" for="inlineCheckbox2">5</label>
+                </div>  
+               </p>
+             </span> 
+
+             <span style="float:right;">
+              <p>  
+               <h6>time_convenient</h6>
+
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" name="name10" type="radio" id="inlineCheckbox9" value=0 />
+                <label class="form-check-label" for="inlineCheckbox1">0</label>
+               </div>
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name10" type="radio" id="inlineCheckbox9" value=1 />
+                 <label class="form-check-label" for="inlineCheckbox1">1</label>
+                </div>
+ 
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name10" type="radio" id="inlineCheckbox9" value=2 />
+                 <label class="form-check-label" for="inlineCheckbox2">2</label>
+                </div>
+               
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name10" type="radio" id="inlineCheckbox9" value=3 />
+                 <label class="form-check-label" for="inlineCheckbox2">3</label>
+                </div> 
+ 
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name10" name="name6" type="radio" id="inlineCheckbox9" value=4 />
+                 <label class="form-check-label" for="inlineCheckbox2">4</label>
+                </div>
+               
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="name10" type="radio" id="inlineCheckbox9" value=5 />
+                 <label class="form-check-label" for="inlineCheckbox2">5</label>
+                </div>  
+               </p>
+             </span> 
+
+             <span style="float:left;"> 
+               <p> 
+                 <div class="form-outline">
+                  <input type="text" id="form3Example1" name="name11" class="form-control" />
+                  <label class="form-label" for="form3Example1">Age</label>
+                 </div>
+               </p>
+              </span> 
+             
+                  
+
+
+<!-- Submit button -->
+             <span style="float:right;"> 
+              
+                <input type="submit" , value='submit' >
+               
+              </span> 
+
+            </form>
+          </div>
+        </div>
+      </section>
+      <!--Section: Content-->
+    </div>
+  </main>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer class="bg-light text-lg-start">
+
+
+    <hr class="m-0" />
+
+   
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2021 Copyright:
+      <a class="text-dark" href="https://mdbootstrap.com/">Lim_chaeeun</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!--Footer-->
+</footer>
+<!--/.Footer-->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{{url_for('static', filename='js/mdb.min.js')}}"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+  // Animations initialization
+  new WOW().init();
+ </script>
+</body>
+</html>
