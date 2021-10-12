@@ -14,7 +14,7 @@ def start():
 def main():
     return render_template('main.html')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['Get','POST'])
 def home():
     data1 = request.form.get('name1')
     data2 = request.form.get('name2')
