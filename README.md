@@ -1,5 +1,11 @@
 ## 2021 머신러닝 모델을 이용한 비행기 만족도 예측 API 구축 프로젝트
 데이터 파이프라인 구축 프로젝트
+### 데이터
+Airline Passenger Satisfaction
+
+항공사 만족도 설문이 포함되어 있는 데이터
+train shape: (103904, 25) test shape:  (25976, 25)
+target: Satisfaction
 
 ### 내용
 데이터 postgrSQL에 저장
