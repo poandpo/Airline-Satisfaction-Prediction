@@ -4,7 +4,9 @@
 Airline Passenger Satisfaction
 
 항공사 만족도 설문이 포함되어 있는 데이터
+- 위드코로나 시작하면 늘어날 해외여행 증가를 위한 비행기 만족도에 영향을 미칠 요소를 파악하고, 예측 모델을 만들기 위해 사용
 train shape: (103904, 25) test shape:  (25976, 25)
+
 target: Satisfaction
 
 ### 내용
